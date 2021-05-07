@@ -5,10 +5,10 @@ where continent is not null
 order by 3,4
 
 
---select *
---From PortfolioProject..CovidVaccinations
---where continent is not null
---order by 3,4
+select *
+From PortfolioProject..CovidVaccinations
+where continent is not null
+order by 3,4
 
 
 --Selecting Data

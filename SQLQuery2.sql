@@ -1,6 +1,6 @@
-
+--making sure we have the table and correct data 
 Select *
-From PortfolioProject..CovidDeaths
+From PortfolioProject..CovidDeaths       --aternatively can use PortfolioProject.dbo.CovidDeaths
 where continent is not null
 order by 3,4
 

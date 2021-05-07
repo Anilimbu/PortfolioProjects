@@ -18,7 +18,7 @@ where continent is not null
 order by 1,2
 
 
---Total cases Vs Total deaths
+--Total cases Vs Total deaths and covid death percentage in Nepal
 Select location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
 From PortfolioProject..CovidDeaths
 where continent is not null
@@ -34,21 +34,19 @@ where continent is not null
 order by 1,2
 
 
---Countries with highest infection rate compared to population
+--Countries with highest infection rate with respect to population
 Select location, population, MAX(total_cases) as HighestInfectionCount,
 MAX(total_cases/population)*100 as PercentageOfPopulationInfected
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
 Group by location, population
 order by PercentageOfPopulationInfected desc
 
 
---Breaking total cases by countries
+--Breaking total cases countywise
 Select location, MAX(cast(total_cases as int)) as Total_Cases
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
 Group by location
 order by Total_cases desc
 
@@ -57,7 +55,6 @@ order by Total_cases desc
 Select continent, MAX(cast(total_deaths as int)) as TotalDeathCount
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
 Group by continent
 order by TotalDeathCount desc
 
@@ -66,7 +63,6 @@ order by TotalDeathCount desc
 Select location, MAX(cast(total_deaths as int)) as TotalDeathCount
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
 Group by location
 order by TotalDeathCount desc
 
@@ -76,7 +72,6 @@ Select date, SUM(new_cases) as TotalNewCasesDaily, SUM(cast(new_deaths as int)) 
 , SUM(cast(new_deaths as int))/SUM(new_cases)*100 as DeathPercentageDaily
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
 Group by date
 order by 1,2
 
@@ -86,12 +81,10 @@ Select SUM(new_cases) as TotalNewCases, SUM(cast(new_deaths as int)) as TotalNew
 SUM(cast(new_deaths as int))/SUM(new_cases)*100 as DeathPercentage
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
---Group by date
 order by 1,2
 
 
---Use CTE --Total population Vs Vaccination
+--Use Common Table Expression (CTE) --Total population Vs Vaccination
 With PopvsVac (Continent, Location, Date, Population, new_Vaccinations, RollingVaccinationCount) as
 (
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,

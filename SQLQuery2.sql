@@ -1,8 +1,8 @@
 --making sure we have the table and correct data 
 Select *
 From PortfolioProject..CovidDeaths       --aternatively can use PortfolioProject.dbo.CovidDeaths
-where continent is not null
-order by 3,4
+where continent is not null		--Excludes the data associated with the continents
+order by 3,4				--formatting
 
 
 select *
@@ -127,6 +127,7 @@ From #PercentPopulationVaccinated
 
 
 --Creating view to store data for Visualization
+--creates a seperate table 
 Create View PercentPopulationVaccinated as
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,
  SUM(CONVERT(int, vac.new_vaccinations)) OVER (Partition by dea.location Order by dea.Location, dea.Date)

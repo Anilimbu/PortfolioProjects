@@ -108,7 +108,7 @@ From PopvsVac
 
 
 --Temporary table
-DROP Table if exists #PercentPopulationVaccinated
+DROP Table if exists #PercentPopulationVaccinated     --Drops any existing table so that the values are accurate and updated
 Create Table #PercentPopulationVaccinated
 (
 Continent nvarchar(255),

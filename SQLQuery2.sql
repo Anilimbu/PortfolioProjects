@@ -30,7 +30,6 @@ order by 1,2
 Select location, date, population, total_cases, (total_cases/population)*100 as PercentageOfPopulationInfected
 From PortfolioProject..CovidDeaths
 where continent is not null
---Where location like '%Nep%'
 order by 1,2
 
 
@@ -65,6 +64,14 @@ From PortfolioProject..CovidDeaths
 where continent is not null
 Group by location
 order by TotalDeathCount desc
+	
+			  
+--Countries with lowest death count per population
+Select location, MIN(cast(total_deaths as int)) as TotalDeathCount
+From PortfolioProject..CovidDeaths
+where continent is not null
+Group by location
+order by TotalDeathCount aesc			  
 
 
 --Global numbers

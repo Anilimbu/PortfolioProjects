@@ -42,7 +42,7 @@ Group by location, population
 order by PercentageOfPopulationInfected desc
 
 
---Breaking total cases countywise
+--Breaking total cases countrywise
 Select location, MAX(cast(total_cases as int)) as Total_Cases
 From PortfolioProject..CovidDeaths
 where continent is not null

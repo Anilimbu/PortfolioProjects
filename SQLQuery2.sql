@@ -11,10 +11,10 @@ where continent is not null
 order by 3,4
 
 
---Selecting Data
+--Selecting Data from CovidDeaths table
 Select location, date, total_cases, new_cases, total_deaths, population
 From PortfolioProject..CovidDeaths
-where continent is not null
+where continent is not null           -- Removes the continents
 order by 1,2
 
 

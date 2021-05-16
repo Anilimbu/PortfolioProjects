@@ -2,7 +2,7 @@
 Select *
 From PortfolioProject..CovidDeaths       --aternatively can use PortfolioProject.dbo.CovidDeaths
 where continent is not null		--Excludes the data associated with the continents
-order by 3,4				--formatting
+order by 3,4				
 
 
 select *

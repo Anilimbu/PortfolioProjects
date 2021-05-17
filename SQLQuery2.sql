@@ -14,7 +14,7 @@ order by 3,4
 --Selecting Data from CovidDeaths table
 Select location, date, total_cases, new_cases, total_deaths, population
 From PortfolioProject..CovidDeaths
-where continent is not null           -- Removes the continents leaving only countries
+where continent is not null           -- Removes continent
 order by 1,2
 
 

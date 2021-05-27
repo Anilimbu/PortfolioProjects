@@ -33,7 +33,7 @@ where continent is not null
 order by 1,2
 
 
---Countries with highest infection rate with respect to population
+--Countries with highest infection rate w.r.t. population
 Select location, population, MAX(total_cases) as HighestInfectionCount,
 MAX(total_cases/population)*100 as PercentageOfPopulationInfected
 From PortfolioProject..CovidDeaths

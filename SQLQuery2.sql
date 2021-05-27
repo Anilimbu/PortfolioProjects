@@ -1,7 +1,7 @@
 --making sure we have the table and correct data 
 Select *
 From PortfolioProject..CovidDeaths       --aternatively can use PortfolioProject.dbo.CovidDeaths
-where continent is not null		--Excludes the data associated with the continents
+where continent is not null		--Excludes the data associated with continents
 order by 3,4				
 
 
